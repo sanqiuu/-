@@ -1,28 +1,28 @@
 @echo off
 echo 
 echo ************************************************************
-echo                      ÓÍ¹Ü ÏÂÔØÖúÊÖ
-echo                   Ò»¼üÏÂÔØYouTubeÓÍ¹ÜÊÓÆµ
-echo              	  byÈýÇï QQ1209803531  
+echo                      æ²¹ç®¡ ä¸‹è½½åŠ©æ‰‹
+echo                   ä¸€é”®ä¸‹è½½YouTubeæ²¹ç®¡è§†é¢‘
+echo              	  byä¸‰ç§‹ QQ1209803531  
 echo *************************************************************
-set /p proxy=ÇëÊäÈë´úÀíµØÖ·£º
+set /p proxy=è¯·è¾“å…¥ä»£ç†åœ°å€ï¼š
 set HTTP_PROXY=%proxy%
 set HTTPS_PROXY=%proxy%  
                                                         
-set /p url=ÇëÊäÈëÊÓÆµµØÖ·£º
+set /p url=è¯·è¾“å…¥è§†é¢‘åœ°å€ï¼š
 
-if "%url%" == "" echo ÌáÊ¾£ºÇëÊäÈëÊÓÆµÍêÕûµØÖ· && goto end
-echo ÕýÔÚ²éÑ¯Ö§³ÖÏÂÔØµÄ¸ñÊ½ÁÐ±í.......
+if "%url%" == "" echo æç¤ºï¼šè¯·è¾“å…¥è§†é¢‘å®Œæ•´åœ°å€ && goto end
+echo æ­£åœ¨æŸ¥è¯¢æ”¯æŒä¸‹è½½çš„æ ¼å¼åˆ—è¡¨.......
 .\youtubedr\youtubedr.exe info %url%
-echo ×¢Òâ£ºaudio onlyµÄÐÐ´ú±íÒôÆµ£¬video onlyµÄÐÐ´ú±íÊÓÆµ
-set /p ITAG_V=ÇëÊäÈëÍ¼ÏñÎÄ¼þITAG(MIMETYPE=video/mp4,VIDEO_QUALITYÔ½´óÔ½ºÃ)£º
-set /p ITAG_A=ÇëÊäÈëÒôÆµÎÄ¼þITAG(MIMETYPE=audio/mp4,AUDIO_ QUALITY=mediumÊÇ×îºÃµÄ)£º
-echo ÕýÔÚÏÂÔØ£¬ÇëÉÔºó...
-.\youtubedr\youtubedr download -d ./output -o 1.m4v -q %ITAG_V% %url%
+echo æ³¨æ„ï¼šaudio onlyçš„è¡Œä»£è¡¨éŸ³é¢‘ï¼Œvideo onlyçš„è¡Œä»£è¡¨è§†é¢‘
+set /p ITAG_V=è¯·è¾“å…¥å›¾åƒæ–‡ä»¶ITAG(MIMETYPE=video/mp4,VIDEO_QUALITYè¶Šå¤§è¶Šå¥½)ï¼š
+set /p ITAG_A=è¯·è¾“å…¥éŸ³é¢‘æ–‡ä»¶ITAG(MIMETYPE=audio/mp4,AUDIO_ QUALITY=mediumæ˜¯æœ€å¥½çš„)ï¼š
+echo æ­£åœ¨ä¸‹è½½ï¼Œè¯·ç¨åŽ...
+.\youtubedr\youtubedr download -d ./output -o 1.mp4 -q %ITAG_V% %url%
 .\youtubedr\youtubedr download -d ./output -o 1.m4a -q %ITAG_A% %url%
-echo ÕýÔÚºÏ³É£¬ÇëÉÔºó...
-.\ffmpeg\ffmpeg -i .\output\1.m4v -i .\output\1.m4a -vcodec copy -acodec copy .\output\video.mp4
+echo æ­£åœ¨åˆæˆï¼Œè¯·ç¨åŽ...
+.\ffmpeg\ffmpeg -i .\output\1.mp4 -i .\output\1.m4a -vcodec copy -acodec copy .\output\video.mp4
 
-echo ÏÂÔØÍê±Ï£¬°´ÈÎÒâ¼üÍË³ö!
+echo ä¸‹è½½å®Œæ¯•ï¼ŒæŒ‰ä»»æ„é”®é€€å‡º!
 pause > nul
 
